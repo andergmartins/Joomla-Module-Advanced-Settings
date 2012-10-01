@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="package" version="2.5.0" method="upgrade">
+	<name>Modules Advanced Settings</name>
+	<packagename>modadvancedsettings</packagename>
+	<author>Anderson Grüdtner Martins</author>
+	<packager>Anderson Grüdtner Martins</packager>
+	<packageurl>https://github.com/andergmartins/Joomla-Module-Advanced-Settings</packageurl>
+	<creationDate>October, 2012</creationDate>
+	<copyright>Copyright (c) 2012 Anderson G. Martins. All rights reserved.</copyright>
+	<version>1.0.0</version>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>Plugins to add advanced settings to modules</description>
+
+	<files folder="plugins">
+		<file type="plugin" id="modadvancedsettings" group="system">plg_system_modadvancedsettings.zip</file>
+		<file type="plugin" id="modadvancedsettings" group="content">plg_content_modadvancedsettings.zip</file>
+	</files>
+</extension>

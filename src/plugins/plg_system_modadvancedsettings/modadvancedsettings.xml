@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="2.5.0" type="plugin" group="system" method="upgrade">
+    <name>System - Module Advanced Settings</name>
+    <author>Anderson Grüdtner Martins</author>
+    <creationDate>July, 2012</creationDate>
+    <copyright>Copyright (c) 2012 Anderson G. Martins. All rights reserved.</copyright>
+    <authorEmail>andergmartins@gmail.com</authorEmail>
+    <authorUrl>about.me/andersonmartins</authorUrl>
+    <version>1.0.0</version>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <description><![CDATA[Plugin to extend module advanced settings]]></description>
+    <files>
+        <filename plugin="modadvancedsettings">modadvancedsettings.php</filename>
+        <folder>class</folder>
+    </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_modadvancedsettings.ini</language>
+    </languages>
+    <params>
+
+    </params>
+</install>

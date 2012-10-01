@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="params">
+        <fieldset
+            name="advanced">
+
+            <field
+                name="module_tag"
+                type="moduletags"
+                label="PLG_MODADVANCEDSETTINGS_MODULE_TAG_LABEL"
+                description="PLG_MODADVANCEDSETTINGS_MODULE_TAG_DESC"
+                default="div" />
+
+            <field
+                name="bootstrap_size"
+                type="integer"
+                first="1"
+                last="12"
+                step="1"
+                label="PLG_MODADVANCEDSETTINGS_BOOTSTRAP_SIZE_LABEL"
+                description="PLG_MODADVANCEDSETTINGS_BOOTSTRAP_SIZE_DESC" />
+
+            <field
+                name="header_tag"
+                type="headertags"
+                label="PLG_MODADVANCEDSETTINGS_HEADER_TAG_LABEL"
+                description="PLG_MODADVANCEDSETTINGS_HEADER_TAG_DESC" />
+
+            <field
+                name="header_class"
+                type="text"
+                label="PLG_MODADVANCEDSETTINGS_HEADER_CLASS_LABEL"
+                description="PLG_MODADVANCEDSETTINGS_HEADER_CLASS_DESC" />
+
+            <field
+                name="style"
+                type="chromestyles"
+                label="PLG_MODADVANCEDSETTINGS_MODULE_STYLE_LABEL"
+                description="PLG_MODADVANCEDSETTINGS_MODULE_STYLE_DESC" />
+        </fieldset>
+    </fields>
+</form>
