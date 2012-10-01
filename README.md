@@ -47,6 +47,8 @@ To use the advanced settings, update the *\_yourtemplate_path_/html/modules.php*
 		<?php endif;
 	}
 
+The plugin will automaticaly detect that change into any template and show it into params.
+
 Joomla's Overridden Class
 -------------------------
 To be able to use this plugin, we added an override for the native **JModuleHelper** class. The original class inside Joomla's library folder
