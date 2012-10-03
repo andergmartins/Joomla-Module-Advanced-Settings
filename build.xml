@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<project name="Module Advanced Settings Builder" default="build" description="Build the install package">
+	<property file="build.properties" />
+
+	<target name="prepare">
+		<mkdir dir="${tmp_dir}" />
+		<mkdir dir="${tmp_dir}/plugins" />
+	</target>
+
+	<target name="zip_plg_system">
+		<zip destfile="${tmp_dir}/plugins/plg_system_modadvancedsettings.zip">
+			<fileset dir="src/plugins/plg_system_modadvancedsettings">
+				<include name="**/**" />
+			</fileset>
+		</zip>
+	</target>
+
+	<target name="zip_plg_content">
+		<zip destfile="${tmp_dir}/plugins/plg_content_modadvancedsettings.zip">
+			<fileset dir="src/plugins/plg_content_modadvancedsettings">
+				<include name="**/**" />
+			</fileset>
+		</zip>
+	</target>
+
+	<target name="build" depends="prepare, zip_plg_system, zip_plg_content">
+		<copy file="src/pkg_modadvancedsettings.xml" tofile="${tmp_dir}/pkg_modadvancedsettings.xml" overwrite="true" />
+		<zip destfile="packages/plg_modadvancedsettings-${version}.zip">
+			<fileset dir="${tmp_dir}">
+				<include name="pkg_modadvancedsettings.xml" />
+				<include name="plugins/plg_content_modadvancedsettings.zip" />
+				<include name="plugins/plg_system_modadvancedsettings.zip" />
+			</fileset>
+		</zip>
+		<phingcall target="clean" />
+	</target>
+
+	<target name="clean">
+		<delete dir="tmp" />
+	</target>
+</project>

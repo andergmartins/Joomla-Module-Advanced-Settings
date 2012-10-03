@@ -1,3 +1,4 @@
 .gitignore
+.DS_Store
 modadvancedsettings.sublime-project
 modadvancedsettings.sublime-workspace
