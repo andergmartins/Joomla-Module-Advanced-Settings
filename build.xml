@@ -2,31 +2,56 @@
 <project name="Module Advanced Settings Builder" default="build" description="Build the install package">
 	<property file="build.properties" />
 
+	<exec command="date +%Y" outputProperty="YEAR" />
+	<exec command="date '+%B %d, %Y'" outputProperty="TODAY" />
+
 	<target name="prepare">
-		<mkdir dir="${tmp_dir}" />
-		<mkdir dir="${tmp_dir}/plugins" />
+		<mkdir dir="${TMP_DIR}" />
+		<mkdir dir="${TMP_DIR}/plugins" />
 	</target>
 
-	<target name="zip_plg_system">
-		<zip destfile="${tmp_dir}/plugins/plg_system_modadvancedsettings.zip">
-			<fileset dir="src/plugins/plg_system_modadvancedsettings">
+	<target name="zip_plugin">
+		<copy todir="${TMP_DIR}/plugins">
+			<filterchain>
+				<replacetokens begintoken="%%" endtoken="%%">
+					<token key="VERSION" value="${VERSION}" />
+					<token key="YEAR" value="${YEAR}" />
+					<token key="TODAY" value="${TODAY}" />
+				</replacetokens>
+			</filterchain>
+
+			<fileset dir="src/plugins/">
+				<include name="${PLG_NAME}" />
+				<include name="${PLG_NAME}/**" />
+			</fileset>
+		</copy>
+		<zip destfile="${TMP_DIR}/plugins/${PLG_NAME}.zip">
+			<fileset dir="${TMP_DIR}/plugins/${PLG_NAME}">
 				<include name="**/**" />
 			</fileset>
 		</zip>
 	</target>
 
-	<target name="zip_plg_content">
-		<zip destfile="${tmp_dir}/plugins/plg_content_modadvancedsettings.zip">
-			<fileset dir="src/plugins/plg_content_modadvancedsettings">
-				<include name="**/**" />
-			</fileset>
-		</zip>
-	</target>
+	<target name="build" depends="prepare">
+		<phingcall target="zip_plugin">
+			<property name="PLG_NAME" value="plg_system_modadvancedsettings" />
+		</phingcall>
 
-	<target name="build" depends="prepare, zip_plg_system, zip_plg_content">
-		<copy file="src/pkg_modadvancedsettings.xml" tofile="${tmp_dir}/pkg_modadvancedsettings.xml" overwrite="true" />
-		<zip destfile="packages/plg_modadvancedsettings-${version}.zip">
-			<fileset dir="${tmp_dir}">
+		<phingcall target="zip_plugin">
+			<property name="PLG_NAME" value="plg_content_modadvancedsettings" />
+		</phingcall>
+
+		<copy file="src/pkg_modadvancedsettings.xml" tofile="${TMP_DIR}/pkg_modadvancedsettings.xml" overwrite="true">
+			<filterchain>
+				<replacetokens begintoken="%%" endtoken="%%">
+					<token key="VERSION" value="${VERSION}" />
+					<token key="YEAR" value="${YEAR}" />
+					<token key="TODAY" value="${TODAY}" />
+				</replacetokens>
+			</filterchain>
+		</copy>
+		<zip destfile="packages/plg_modadvancedsettings-${VERSION}.zip">
+			<fileset dir="${TMP_DIR}">
 				<include name="pkg_modadvancedsettings.xml" />
 				<include name="plugins/plg_content_modadvancedsettings.zip" />
 				<include name="plugins/plg_system_modadvancedsettings.zip" />

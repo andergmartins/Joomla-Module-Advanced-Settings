@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <install version="2.5.0" type="plugin" group="system" method="upgrade">
     <name>System - Module Advanced Settings</name>
-    <author>Anderson Grüdtner Martins</author>
-    <creationDate>July, 2012</creationDate>
-    <copyright>Copyright (c) 2012 Paulo Griiettner/Anderson G. Martins. All rights reserved.</copyright>
+    <author>Paulo Griiettner/Anderson Grüdtner Martins</author>
+    <creationDate>%%TODAY%%</creationDate>
+    <copyright>Copyright (c) %%YEAR%% Paulo Griiettner/Anderson G. Martins. All rights reserved.</copyright>
     <authorEmail>andergmartins@gmail.com</authorEmail>
     <authorUrl>about.me/andersonmartins</authorUrl>
-    <version>1.0.0</version>
+    <version>%%VERSION%%</version>
     <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
     <description><![CDATA[Plugin to extend module advanced settings]]></description>
     <files>
